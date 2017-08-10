@@ -1,6 +1,6 @@
 angular.module("tutorialCtrlModule",[])
 
-.controller("TutorialCtrl",["$scope",function($scope){
+.controller("TutorialCtrl",["$scope","Calculations",function($scope,Calculations){
 	//all the code goes here
 	$scope.tutorialObject={};
 	$scope.tutorialObject.title="Main Page";
@@ -9,21 +9,16 @@ angular.module("tutorialCtrlModule",[])
 	$scope.tutorialObject.firstName="Omkar";
 	$scope.tutorialObject.lastName="Pawar";
 	$scope.timesTwo=function(){
-		$scope.tutorialObject.bindOutput*=2;
+		$scope.tutorialObject.bindOutput=Calculations.timesTwo($scope.tutorialObject.bindOutput);
 	}
 }])
 
-.directive("opWelcomeMessage",function(){
-	return {
-		restrict: "E",
-		template: "<div>HowdeyElement</div>"
-	}
-})
+.factory("Calculations",function(){
+	var calculations={};
 
+	calculations.timesTwo=function(a){
+		return 2*a;
+	};
 
-.directive("opWelcomeMessageTwo",function(){
-	return {
-		restrict: "A",
-		template: "<div>HowdeyAttribute</div>"
-	}
+	return calculations;
 });
