@@ -12,8 +12,21 @@
 <h1>{{tutorialObject.title}}</h1>
 <h1>{{tutorialObject.subTitle}}</h1>
 <p>Number: {{2 + 2}}</p>
-<p>String: {{"Thomas" + " " + "Brown"}}</p>
+<p>String: {{tutorialObject.firstName+" "+tutorialObject.lastName}}</p>
 <p><b>Binding: {{tutorialObject.bindOutput}}</b></p>
+
+<label>First Name:</label>
+<input ng-model="tutorialObject.firstName">
+<br/>
+<label>Second Name:</label>
+<input ng-model="tutorialObject.lastName">
+
 <button ng-click="timesTwo()">Multiply</button>
+<!--used to call a directive using ELEMENT Clause "E" -->
+<op-welcome-message></op-welcome-message>
+
+
+<span op-welcome-message-two></span>
+
 </body>
 </html>
